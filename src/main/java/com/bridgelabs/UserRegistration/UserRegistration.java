@@ -14,9 +14,9 @@ public class UserRegistration {
 	 * 
 	 * @param: String name
 	 * 
-	 * @return: void
+	 * @return: boolean
 	 */
-	public static void validateFirstName(String name) {
+	public static boolean validateFirstName(String name) {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
@@ -30,6 +30,7 @@ public class UserRegistration {
 			System.out.println("Valid first name!");
 		else
 			System.out.println("Invalid first name!");
+		return result;
 	}
 
 	/*
@@ -38,9 +39,9 @@ public class UserRegistration {
 	 * 
 	 * @param: String name
 	 * 
-	 * @return: void
+	 * @return: boolean
 	 */
-	public static void validateLastName(String name) {
+	public static boolean validateLastName(String name) {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
@@ -54,6 +55,7 @@ public class UserRegistration {
 			System.out.println("Valid Last name!");
 		else
 			System.out.println("Invalid last name!");
+		return result;
 	}
 
 	/*
@@ -62,9 +64,9 @@ public class UserRegistration {
 	 * 
 	 * @param: String email
 	 * 
-	 * @return: void
+	 * @return: boolean
 	 */
-	public static void validateEmail(String email) {
+	public static boolean validateEmail(String email) {
 		// Regex Expression for email
 		final String emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}";
 
@@ -79,6 +81,8 @@ public class UserRegistration {
 			System.out.println("Valid Email!");
 		else
 			System.out.println("Invalid Email!");
+
+		return result;
 	}
 
 	/*
@@ -87,10 +91,10 @@ public class UserRegistration {
 	 * 
 	 * @param: String phoneNumber
 	 * 
-	 * @return: void
+	 * @return: boolean
 	 */
 
-	public static void validatePhoneNumber(String phoneNumber) {
+	public static boolean validatePhoneNumber(String phoneNumber) {
 		// Regex Expression for phoneNumber
 		String regex = "^\\d{2} \\d{10}$";
 
@@ -105,18 +109,20 @@ public class UserRegistration {
 			System.out.println("Valid Phone Number!");
 		else
 			System.out.println("Invalid Phone Number!");
+
+		return result;
 	}
 
 	/*
-	 * @description: Validate password: Rule1 – minimum 8 Characters
+	 * @description: Validate password: Rule2 – Should have at least 1 Upper Case
 	 * 
 	 * @param: String password
 	 * 
 	 * @return: void
 	 */
-	public static void validatePassword(String Password) {
+	public static boolean validatePassword(String Password) {
 		// Regex Expression for phoneNumber having 8 characters
-		String regex = "^{8,}$";
+		String regex = "^(?=.*[A-Z]).{8,}$";
 
 		// compile the regex
 		Pattern pattern = Pattern.compile(regex);
@@ -126,9 +132,12 @@ public class UserRegistration {
 		boolean result = matcher.matches();
 
 		if (result)
-			System.out.println("Password has 8 characters !");
+			System.out.println("Password has 8 characters and !");
 		else
 			System.out.println("Invalid Password!");
+
+		return result;
+
 	}
 
 }
