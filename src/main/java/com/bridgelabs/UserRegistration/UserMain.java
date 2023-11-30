@@ -25,5 +25,11 @@ public class UserMain {
 
 		UserRegistration.validateEmail(Email);
 
+		// UC-4
+		System.out.print("Enter the Phone Number of User: ");
+		String Phone = sc.nextLine();
+
+		UserRegistration.validatePhoneNumber(Phone);
+
 	}
 }

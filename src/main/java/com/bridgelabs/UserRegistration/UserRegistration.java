@@ -81,4 +81,30 @@ public class UserRegistration {
 			System.out.println("Invalid Email!");
 	}
 
+	/*
+	 * @description: Validate phone number: E.g. 91 9919819801 - Country code follow
+	 * by space and 10 digit number
+	 * 
+	 * @param: String phoneNumber
+	 * 
+	 * @return: void
+	 */
+
+	public static void validatePhoneNumber(String phoneNumber) {
+		// Regex Expression for phoneNumber
+		String regex = "^\\d{2} \\d{10}$";
+
+		// compile the regex
+		Pattern pattern = Pattern.compile(regex);
+
+		// Match the pattern
+		Matcher matcher = pattern.matcher(phoneNumber);
+		boolean result = matcher.matches();
+
+		if (result)
+			System.out.println("Valid Phone Number!");
+		else
+			System.out.println("Invalid Phone Number!");
+	}
+
 }
