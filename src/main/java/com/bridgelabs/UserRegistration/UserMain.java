@@ -31,7 +31,7 @@ public class UserMain {
 
 		UserRegistration.validatePhoneNumber(Phone);
 
-		// UC-6
+		// UC-7
 		System.out.print("Enter the Password: ");
 		String Pass = sc.nextLine();
 
