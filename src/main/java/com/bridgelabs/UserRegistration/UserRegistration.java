@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * @description: User Registration System needs to ensure all validations entries
+ * @description: User Registration System needs to ensure all valid entries
  */
 public class UserRegistration {
 
@@ -105,6 +105,30 @@ public class UserRegistration {
 			System.out.println("Valid Phone Number!");
 		else
 			System.out.println("Invalid Phone Number!");
+	}
+
+	/*
+	 * @description: Validate password: Rule1 – minimum 8 Characters
+	 * 
+	 * @param: String password
+	 * 
+	 * @return: void
+	 */
+	public static void validatePassword(String Password) {
+		// Regex Expression for phoneNumber having 8 characters
+		String regex = "^{8,}$";
+
+		// compile the regex
+		Pattern pattern = Pattern.compile(regex);
+
+		// Match the pattern
+		Matcher matcher = pattern.matcher(Password);
+		boolean result = matcher.matches();
+
+		if (result)
+			System.out.println("Password has 8 characters !");
+		else
+			System.out.println("Invalid Password!");
 	}
 
 }
