@@ -19,5 +19,11 @@ public class UserMain {
 
 		UserRegistration.validateLastName(LName);
 
+		// UC-3
+		System.out.print("Enter the Email of User: ");
+		String Email = sc.nextLine();
+
+		UserRegistration.validateEmail(Email);
+
 	}
 }
