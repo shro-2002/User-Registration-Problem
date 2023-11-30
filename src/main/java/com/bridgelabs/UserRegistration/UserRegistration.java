@@ -114,8 +114,7 @@ public class UserRegistration {
 	}
 
 	/*
-	 * @description: Validate password: Rule3 – Should have at least 1 numeric
-	 * number in the password
+	 * @description: Validate password: Rule4 – Has exactly 1 Special Character
 	 * 
 	 * @param: String password
 	 * 
@@ -123,7 +122,7 @@ public class UserRegistration {
 	 */
 	public static boolean validatePassword(String Password) {
 		// Regex Expression for phoneNumber having 8 characters
-		String regex = "(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])(?!.*[@#$%^&-+=()]{2,}).{8,}$";
 
 		// compile the regex
 		Pattern pattern = Pattern.compile(regex);
@@ -133,12 +132,12 @@ public class UserRegistration {
 		boolean result = matcher.matches();
 
 		if (result)
-			System.out.println("Password has 8 characters , An Uppercase and a Numeric Character !");
+			System.out.println(
+					"Password has 8 characters , An Uppercase, a Numeric Character an Exactly one Special Character !");
 		else
 			System.out.println("Invalid Password!");
 
 		return result;
-
 	}
 
 }
