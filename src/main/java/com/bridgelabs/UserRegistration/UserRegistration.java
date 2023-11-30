@@ -20,10 +20,8 @@ public class UserRegistration {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
-		// compile the regex
 		Pattern pattern = Pattern.compile(regex);
 
-		// Match the pattern
 		Matcher matcher = pattern.matcher(name);
 		boolean result = matcher.matches();
 		if (result)
@@ -45,10 +43,8 @@ public class UserRegistration {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
-		// compile the regex
 		Pattern pattern = Pattern.compile(regex);
 
-		// Match the pattern
 		Matcher matcher = pattern.matcher(name);
 		boolean result = matcher.matches();
 		if (result)
@@ -68,12 +64,10 @@ public class UserRegistration {
 	 */
 	public static boolean validateEmail(String email) {
 		// Regex Expression for email
-		final String emailRegex = "^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9]+(?:\\.[a-zA-Z]{2,})+$";
+		final String emailRegex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+@[a-zA-Z0-9.-]+$";
 
-		// compile the regex
 		Pattern pattern = Pattern.compile(emailRegex);
 
-		// Match the pattern
 		Matcher matcher = pattern.matcher(email);
 		boolean result = matcher.matches();
 
@@ -98,10 +92,8 @@ public class UserRegistration {
 		// Regex Expression for phoneNumber
 		String regex = "^\\d{2} \\d{10}$";
 
-		// compile the regex
 		Pattern pattern = Pattern.compile(regex);
 
-		// Match the pattern
 		Matcher matcher = pattern.matcher(phoneNumber);
 		boolean result = matcher.matches();
 
@@ -121,13 +113,10 @@ public class UserRegistration {
 	 * @return: void
 	 */
 	public static boolean validatePassword(String Password) {
-		// Regex Expression for phoneNumber having 8 characters
 		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])(?!.*[@#$%^&-+=()]{2,}).{8,}$";
 
-		// compile the regex
 		Pattern pattern = Pattern.compile(regex);
 
-		// Match the pattern
 		Matcher matcher = pattern.matcher(Password);
 		boolean result = matcher.matches();
 
