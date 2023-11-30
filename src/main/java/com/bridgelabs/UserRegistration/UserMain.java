@@ -5,19 +5,19 @@ import java.util.Scanner;
 public class UserMain {
 
 	public static void main(String[] args) {
-
+		// UC-1
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("Enter the first name: ");
 		String fName = sc.nextLine();
 
-		if (UserRegistration.validateFirstName(fName))
+		UserRegistration.validateFirstName(fName);
 
-			System.out.println("Valid first name!");
+		// UC-2
+		System.out.print("Enter the Last name: ");
+		String LName = sc.nextLine();
 
-		else
-
-			System.out.println("Invalid first name. Please enter the first letter capital!!");
+		UserRegistration.validateLastName(LName);
 
 	}
 }
