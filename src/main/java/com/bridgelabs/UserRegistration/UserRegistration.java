@@ -16,7 +16,7 @@ public class UserRegistration {
 	 * 
 	 * @return: boolean
 	 */
-	public static boolean validateFirstName(String name) {
+	public  boolean validateFirstName(String name) {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
@@ -39,7 +39,7 @@ public class UserRegistration {
 	 * 
 	 * @return: boolean
 	 */
-	public static boolean validateLastName(String name) {
+	public  boolean validateLastName(String name) {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
@@ -62,7 +62,7 @@ public class UserRegistration {
 	 * 
 	 * @return: boolean
 	 */
-	public static boolean validateEmail(String email) {
+	public  boolean validateEmail(String email) {
 		// Regex Expression for email
 		final String emailRegex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+@[a-zA-Z0-9.-]+$";
 
@@ -88,7 +88,7 @@ public class UserRegistration {
 	 * @return: boolean
 	 */
 
-	public static boolean validatePhoneNumber(String phoneNumber) {
+	public  boolean validatePhoneNumber(String phoneNumber) {
 		// Regex Expression for phoneNumber
 		String regex = "^\\d{2} \\d{10}$";
 
@@ -112,7 +112,7 @@ public class UserRegistration {
 	 * 
 	 * @return: void
 	 */
-	public static boolean validatePassword(String Password) {
+	public  boolean validatePassword(String Password) {
 		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])(?!.*[@#$%^&-+=()]{2,}).{8,}$";
 
 		Pattern pattern = Pattern.compile(regex);
@@ -122,7 +122,7 @@ public class UserRegistration {
 
 		if (result)
 			System.out.println(
-					"Password has 8 characters , An Uppercase, a Numeric Character an Exactly one Special Character !");
+					"Password has 8 characters , An Uppercase, a Numeric Character and Exactly one Special Character !");
 		else
 			System.out.println("Invalid Password!");
 
