@@ -8,6 +8,16 @@ import java.util.regex.Pattern;
  */
 public class UserRegistration {
 
+	private boolean RegexMatching(String regex, String data) {
+
+		Pattern pattern = Pattern.compile(regex);
+
+		Matcher matcher = pattern.matcher(data);
+		boolean result = matcher.matches();
+
+		return result;
+	}
+
 	/*
 	 * @description: Validate first name: first name starts with Cap and has minimum
 	 * 3 characters
@@ -20,10 +30,7 @@ public class UserRegistration {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
-		Pattern pattern = Pattern.compile(regex);
-
-		Matcher matcher = pattern.matcher(name);
-		boolean result = matcher.matches();
+		boolean result = RegexMatching(regex, name);
 		if (result)
 			System.out.println("Valid first name!");
 		else
@@ -43,10 +50,7 @@ public class UserRegistration {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
-		Pattern pattern = Pattern.compile(regex);
-
-		Matcher matcher = pattern.matcher(name);
-		boolean result = matcher.matches();
+		boolean result = RegexMatching(regex, name);
 		if (result)
 			System.out.println("Valid Last name!");
 		else
@@ -64,12 +68,9 @@ public class UserRegistration {
 	 */
 	public boolean validateEmail(String email) {
 		// Regex Expression for email
-		final String emailRegex = "^(?!.*\\.{2})[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(?<!\\.\\w)$";
+		final String regex = "^(?!.*\\.{2})[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(?<!\\.\\w)$";
 
-		Pattern pattern = Pattern.compile(emailRegex);
-
-		Matcher matcher = pattern.matcher(email);
-		boolean result = matcher.matches();
+		boolean result = RegexMatching(regex, email);
 
 		if (result)
 			System.out.println("Valid Email!");
@@ -92,10 +93,7 @@ public class UserRegistration {
 		// Regex Expression for phoneNumber
 		String regex = "^\\d{2} \\d{10}$";
 
-		Pattern pattern = Pattern.compile(regex);
-
-		Matcher matcher = pattern.matcher(phoneNumber);
-		boolean result = matcher.matches();
+		boolean result = RegexMatching(regex, phoneNumber);
 
 		if (result)
 			System.out.println("Valid Phone Number!");
@@ -115,10 +113,7 @@ public class UserRegistration {
 	public boolean validatePassword(String Password) {
 		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])(?!.*[@#$%^&-+=()]{2,}).{8,}$";
 
-		Pattern pattern = Pattern.compile(regex);
-
-		Matcher matcher = pattern.matcher(Password);
-		boolean result = matcher.matches();
+		boolean result = RegexMatching(regex, Password);
 
 		if (result)
 			System.out.println(
