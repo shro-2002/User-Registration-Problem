@@ -26,16 +26,15 @@ public class UserRegistration {
 	 * 
 	 * @return: boolean
 	 */
-	public boolean validateFirstName(String name) {
+	public boolean validateFirstName(String name) throws InvalidUserDetailsException {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
-		boolean result = RegexMatching(regex, name);
-		if (result)
-			System.out.println("Valid first name!");
-		else
-			System.out.println("Invalid first name!");
-		return result;
+		if (!RegexMatching(regex, name)) {
+			throw new InvalidUserDetailsException("Invalid first name!");
+		}
+		System.out.println("Valid first name!");
+		return true;
 	}
 
 	/*
@@ -46,16 +45,15 @@ public class UserRegistration {
 	 * 
 	 * @return: boolean
 	 */
-	public boolean validateLastName(String name) {
+	public boolean validateLastName(String name) throws InvalidUserDetailsException {
 		// Regex Expression for name
 		final String regex = "^[A-Z][a-z]{2,}$";
 
-		boolean result = RegexMatching(regex, name);
-		if (result)
-			System.out.println("Valid Last name!");
-		else
-			System.out.println("Invalid last name!");
-		return result;
+		if (!RegexMatching(regex, name)) {
+			throw new InvalidUserDetailsException("Invalid last name!");
+		}
+		System.out.println("Valid last name!");
+		return true;
 	}
 
 	/*
@@ -66,18 +64,15 @@ public class UserRegistration {
 	 * 
 	 * @return: boolean
 	 */
-	public boolean validateEmail(String email) {
+	public boolean validateEmail(String email) throws InvalidUserDetailsException {
 		// Regex Expression for email
 		final String regex = "^(?!.*\\.{2})[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(?<!\\.\\w)$";
 
-		boolean result = RegexMatching(regex, email);
-
-		if (result)
-			System.out.println("Valid Email!");
-		else
-			System.out.println("Invalid Email!");
-
-		return result;
+		if (!RegexMatching(regex, email)) {
+			throw new InvalidUserDetailsException("Invalid Email!");
+		}
+		System.out.println("Valid Email!");
+		return true;
 	}
 
 	/*
@@ -89,18 +84,15 @@ public class UserRegistration {
 	 * @return: boolean
 	 */
 
-	public boolean validatePhoneNumber(String phoneNumber) {
+	public boolean validatePhoneNumber(String phoneNumber) throws InvalidUserDetailsException {
 		// Regex Expression for phoneNumber
 		String regex = "^\\d{2} \\d{10}$";
 
-		boolean result = RegexMatching(regex, phoneNumber);
-
-		if (result)
-			System.out.println("Valid Phone Number!");
-		else
-			System.out.println("Invalid Phone Number!");
-
-		return result;
+		if (!RegexMatching(regex, phoneNumber)) {
+			throw new InvalidUserDetailsException("Invalid Phone Number!");
+		}
+		System.out.println("Valid Phone Number!");
+		return true;
 	}
 
 	/*
@@ -110,18 +102,14 @@ public class UserRegistration {
 	 * 
 	 * @return: void
 	 */
-	public boolean validatePassword(String Password) {
+	public boolean validatePassword(String Password) throws InvalidUserDetailsException {
 		String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])(?!.*[@#$%^&-+=()]{2,}).{8,}$";
 
-		boolean result = RegexMatching(regex, Password);
-
-		if (result)
-			System.out.println(
-					"Password has 8 characters , An Uppercase, a Numeric Character and Exactly one Special Character !");
-		else
-			System.out.println("Invalid Password!");
-
-		return result;
+		if (!RegexMatching(regex, Password)) {
+			throw new InvalidUserDetailsException("Invalid Password!");
+		}
+		System.out.println("Valid Password!");
+		return true;
 	}
 
 }

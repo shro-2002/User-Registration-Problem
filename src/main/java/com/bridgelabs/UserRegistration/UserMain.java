@@ -10,34 +10,37 @@ public class UserMain {
 		// UC-1
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Enter the first name: ");
-		String fName = sc.nextLine();
+		try {
+			System.out.print("Enter the first name: ");
+			String fName = sc.nextLine();
+			user.validateFirstName(fName);
 
-		user.validateFirstName(fName);
+			// UC-2
+			System.out.print("Enter the Last name: ");
+			String LName = sc.nextLine();
+			user.validateLastName(LName);
 
-		// UC-2
-		System.out.print("Enter the Last name: ");
-		String LName = sc.nextLine();
+			// UC-3
+			System.out.print("Enter the Email of User: ");
+			String Email = sc.nextLine();
+			user.validateEmail(Email);
 
-		user.validateLastName(LName);
+			// UC-4
+			System.out.print("Enter the Phone Number of User: ");
+			String Phone = sc.nextLine();
 
-		// UC-3
-		System.out.print("Enter the Email of User: ");
-		String Email = sc.nextLine();
+			user.validatePhoneNumber(Phone);
 
-		user.validateEmail(Email);
+			// UC-7
+			System.out.print("Enter the Password: ");
+			String Pass = sc.nextLine();
 
-		// UC-4
-		System.out.print("Enter the Phone Number of User: ");
-		String Phone = sc.nextLine();
+			user.validatePassword(Pass);
+		}
 
-		user.validatePhoneNumber(Phone);
-
-		// UC-7
-		System.out.print("Enter the Password: ");
-		String Pass = sc.nextLine();
-
-		user.validatePassword(Pass);
+		catch (InvalidUserDetailsException e) {
+			System.out.println("Exception: " + e.getMessage());
+		}
 
 	}
 }

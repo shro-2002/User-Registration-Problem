@@ -1,7 +1,8 @@
 package com.bridgelabs.UserRegistration;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -32,7 +33,7 @@ class UserTest {
 	 * @Return: None
 	 */
 	@Test
-	void Happytest() {
+	void Happytest() throws InvalidUserDetailsException {
 
 		assertTrue(user.validateFirstName("Shroddha"));
 		assertTrue(user.validateLastName("Ghosh"));
@@ -51,13 +52,13 @@ class UserTest {
 	 * @Return: None
 	 */
 	@Test
-	void Sadtest() {
+	void Sadtest() throws InvalidUserDetailsException {
 
-		assertFalse(user.validateFirstName("miya"));
-		assertFalse(user.validateLastName("riya"));
-		assertFalse(user.validateEmail("abc.123@gmail.a"));
-		assertFalse(user.validatePhoneNumber("917893426292"));
-		assertFalse(user.validatePassword("Tokyo@@123"));
+		assertThrows(InvalidUserDetailsException.class, () -> user.validateFirstName("shroddha"));
+		assertThrows(InvalidUserDetailsException.class, () -> user.validateLastName("ghosh"));
+		assertThrows(InvalidUserDetailsException.class, () -> user.validateEmail("abc100@.com"));
+		assertThrows(InvalidUserDetailsException.class, () -> user.validatePhoneNumber("7893426292"));
+		assertThrows(InvalidUserDetailsException.class, () -> user.validatePassword("tokyo@123"));
 
 	}
 
@@ -73,7 +74,7 @@ class UserTest {
 	@ValueSource(strings = { "abc@yahoo.com", "abc.100@abc.net", "abc111@abc.com", "abc@1.com", "abc@gmail.com.com",
 			"abc+100@gmail.com" })
 
-	void ValidEmails(String email) {
+	void ValidEmails(String email) throws InvalidUserDetailsException {
 		assertTrue(user.validateEmail(email));
 	}
 
@@ -87,8 +88,8 @@ class UserTest {
 	@ParameterizedTest
 	@ValueSource(strings = { "abc", "abc123@gmail.a", "abc123@.com", "abc..2002@gmail.com", "abc@abc@gmail.com",
 			"12. abc@gmail.com.1a" })
-	void InvalidEmails(String email) {
-		assertFalse(user.validateEmail(email));
+	void InvalidEmails(String email) throws InvalidUserDetailsException {
+		assertThrows(InvalidUserDetailsException.class, () -> user.validateEmail(email));
 	}
 
 }
